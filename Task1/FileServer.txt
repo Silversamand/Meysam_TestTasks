@@ -1,0 +1,56 @@
+
+/* Different topologies are possible and this can be one of them. */
+
+class FileServer {
+	
+		public:
+			virtual int ConnectFileServer(/*...*/) = 0;
+			virtual int CheckCredential(/*...*/) = 0;
+			virtual int DisconnectFileServer(/*...*/) = 0;
+			virtual int GetFileList(/* ... */) = 0;
+			virtual int DownloadFile(/* ... */) = 0;
+		
+		protected:
+			int HTTP_request(/*...*/) { /* ... */}
+			int HTTP_send(/*...*/) { /* ... */}
+			/* other functions required to stablish a low level HTTP connection */
+			
+	}
+	
+	/* Interface class to handle different file types, in case to display or any
+	 other required action. */
+
+	//class FileType {/*...*/}
+	//class FileTXT : public FileType{/*...*/}
+	//class FileMP3 : public FileType{/*...*/}
+	/****************************************/
+	
+	// The following classes can be inherent from other classes like Filetype class to handle specific type of class 
+	
+	class OneDrive : protected FileServer {
+	
+		public:
+			ConnectFileServer(/*...*/);
+			CheckCredential(/*...*/);
+			DisconnectFileServer(/*...*/);
+			GetFileList(/* ... */);
+			DownloadFile(/* ... */);
+		
+		private:
+		/* ... */
+		
+	}
+	
+	class GDrive : protected FileServer {
+	
+		public:
+			ConnectFileServer(/*...*/);
+			CheckCredential(/*...*/);
+			DisconnectFileServer(/*...*/);
+			GetFileList(/* ... */);
+			DownloadFile(/* ... */);	
+		private:
+		/* ... */
+			
+	}
+	
