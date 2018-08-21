@@ -1,0 +1,15 @@
+
+
+
+int BitFlip(int value)
+{
+//...
+  unsigned i;
+  unsigned index = 1;
+  for(i=0;i<32;i++){
+    if (!(value & index) )
+      return (value|index);
+    index <<= 1;
+  }
+  return value;
+}
